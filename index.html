@@ -3,96 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Review and Social Sharing</title>
+  <title>Movie Review Site</title>
   <style>
-    /* CSS styles for the movie review and social sharing */
-    .contact-form {
-      /* Contact form styles */
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
-    .comments-form {
-      /* User comments/ratings form styles */
+    /* Header styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
     }
 
-    .social-sharing {
-      /* Social sharing buttons styles */
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
     }
 
-    .movie-news {
-      /* Movie news section styles */
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
     }
 
-    .news-article {
-      /* News article styles */
+    .toggle-container {
+      position: relative;
     }
 
-    /* Add more CSS styles as needed */
+    .toggle {
+      display: none;
+    }
+
+    .switch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 20px;
+      background-color: #ccc;
+      border-radius: 20px;
+    }
+
+    /* Hero section styles */
+    .hero {
+      background: url('hero-background.jpg') center/cover no-repeat;
+      padding: 100px 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Reviews section styles */
+    .reviews {
+      padding: 20px;
+    }
+
+    /* Upcoming Movies section styles */
+    .upcoming {
+      padding: 20px;
+    }
+
+    /* About and Contact section styles */
+    .about, .contact {
+      padding: 20px;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: #fff;
+      margin: 0 10px;
+    }
   </style>
 </head>
 <body>
-  <!-- Contact form -->
-  <form class="contact-form" id="contact-form">
-    <!-- Contact form HTML -->
-  </form>
+  <!-- Header menu -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#upcoming">Upcoming</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="toggle-container">
+        <input type="checkbox" id="toggle" class="toggle">
+        <label for="toggle" class="switch"></label>
+      </div>
+    </nav>
+  </header>
 
-  <!-- User comments/ratings form -->
-  <form class="comments-form" id="comments-form">
-    <!-- User comments/ratings form HTML -->
-  </form>
-
-  <!-- User authentication -->
-  <form id="signup-form">
-    <!-- Account creation form HTML -->
-  </form>
-  <form id="login-form">
-    <!-- Login form HTML -->
-  </form>
-  <div id="user-session">
-    <!-- User session management HTML -->
-  </div>
-
-  <!-- Rating form -->
-  <form id="rating-form">
-    <!-- Rating form HTML -->
-  </form>
-
-  <!-- Social sharing buttons -->
-  <div class="social-sharing">
-    <!-- Social sharing buttons HTML -->
-  </div>
-
-  <!-- Movie news section -->
-  <section class="movie-news">
-    <!-- Movie news section HTML -->
+  <!-- Hero section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Movie Reviews</h1>
+      <input type="text" placeholder="Search for movies">
+    </div>
   </section>
 
+  <!-- Reviews section -->
+  <section id="reviews" class="reviews">
+    <h2>Latest Reviews</h2>
+    <!-- Movie details, ratings, and user comments -->
+  </section>
+
+  <!-- Upcoming Movies section -->
+  <section id="upcoming" class="upcoming">
+    <h2>Upcoming Movies</h2>
+    <!-- Movies grid/list with filters and search -->
+  </section>
+
+  <!-- About and Contact pages -->
+  <section id="about" class="about">
+    <h2>About</h2>
+    <!-- About page content -->
+  </section>
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <!-- Contact page content -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <!-- Social media links -->
+    </div>
+  </footer>
+
   <script>
-    // JavaScript for contact form validation
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      // Add code here for contact form submission and validation
+    // JavaScript for dark/light mode toggle
+    const toggleSwitch = document.querySelector('.toggle');
+    toggleSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
     });
-
-    // JavaScript for user comments/ratings form validation
-    document.getElementById('comments-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      // Add code here for user comments/ratings form submission and validation
-    });
-
-    // JavaScript for user authentication
-    // Add user authentication JavaScript code here
-
-    // JavaScript for rating form submission
-    document.getElementById('rating-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      // Add code here for rating form submission
-    });
-
-    // JavaScript for social sharing functionality
-    // Add social sharing JavaScript code here
-
-    // JavaScript for displaying user comments and ratings
-    // Add code here for displaying user comments and ratings
   </script>
 </body>
 </html>
