@@ -1,166 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Review Site</title>
-  <style>
-    /* General styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review Site</title>
+    <style>
+        /* CSS Styles */
+        /* Styles for header, navigation, dark mode toggle */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
 
-    /* Header styles */
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 10px 20px;
-    }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: space-between;
-    }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
 
-    nav ul li {
-      display: inline;
-      margin-right: 20px;
-    }
+        /* Styles for hero section, reviews, upcoming movies, about, contact */
+        .hero {
+            background-image: url('hero-image.jpg');
+            background-size: cover;
+            text-align: center;
+            padding: 100px 0;
+            color: #fff;
+        }
 
-    .toggle-container {
-      position: relative;
-    }
+        .reviews, .upcoming-movies, .about, .contact {
+            padding: 50px 0;
+        }
 
-    .toggle {
-      display: none;
-    }
+        /* Styles for dark/light mode toggle */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
 
-    .switch {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 40px;
-      height: 20px;
-      background-color: #ccc;
-      border-radius: 20px;
-    }
+        .switch input {display:none;}
 
-    /* Hero section styles */
-    .hero {
-      background: url('hero-background.jpg') center/cover no-repeat;
-      padding: 100px 20px;
-      text-align: center;
-      color: #fff;
-    }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 34px;
+        }
 
-    .hero-content {
-      max-width: 600px;
-      margin: 0 auto;
-    }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: #fff;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
 
-    /* Reviews section styles */
-    .reviews {
-      padding: 20px;
-    }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
 
-    /* Upcoming Movies section styles */
-    .upcoming {
-      padding: 20px;
-    }
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
 
-    /* About and Contact section styles */
-    .about, .contact {
-      padding: 20px;
-    }
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
 
-    /* Footer styles */
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
+        .slider.round {
+            border-radius: 34px;
+        }
 
-    .social-links {
-      margin-top: 20px;
-    }
+        .slider.round:before {
+            border-radius: 50%;
+        }
 
-    .social-links a {
-      color: #fff;
-      margin: 0 10px;
-    }
-  </style>
+        /* Additional styles for movie details, upcoming movies grid, social links, etc. */
+    </style>
 </head>
 <body>
-  <!-- Header menu -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#upcoming">Upcoming</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="toggle-container">
-        <input type="checkbox" id="toggle" class="toggle">
-        <label for="toggle" class="switch"></label>
-      </div>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#upcoming">Upcoming</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <label class="switch">
+            <input type="checkbox" id="toggle">
+            <span class="slider round"></span>
+        </label>
+    </header>
 
-  <!-- Hero section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Movie Reviews</h1>
-      <input type="text" placeholder="Search for movies">
-    </div>
-  </section>
+    <section class="hero">
+        <h1>Welcome to Our Movie Review Site</h1>
+        <input type="text" id="search" placeholder="Search...">
+    </section>
 
-  <!-- Reviews section -->
-  <section id="reviews" class="reviews">
-    <h2>Latest Reviews</h2>
-    <!-- Movie details, ratings, and user comments -->
-  </section>
+    <section class="reviews">
+        <div class="movie-details">
+            <!-- Movie Details, Ratings, User Comments -->
+        </div>
+    </section>
 
-  <!-- Upcoming Movies section -->
-  <section id="upcoming" class="upcoming">
-    <h2>Upcoming Movies</h2>
-    <!-- Movies grid/list with filters and search -->
-  </section>
+    <section class="upcoming-movies">
+        <ul class="filter">
+            <!-- Filters -->
+        </ul>
+        <input type="text" id="upcoming-search" placeholder="Search by Title/Genre/etc.">
+        <div class="movies-grid">
+            <!-- Upcoming Movies Grid/List -->
+        </div>
+    </section>
 
-  <!-- About and Contact pages -->
-  <section id="about" class="about">
-    <h2>About</h2>
-    <!-- About page content -->
-  </section>
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <!-- Contact page content -->
-  </section>
+    <section class="about">
+        <!-- About Page Content -->
+    </section>
+    <section class="contact">
+        <!-- Contact Page Content -->
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="social-links">
-      <!-- Social media links -->
-    </div>
-  </footer>
+    <footer>
+        <ul class="social-links">
+            <!-- Social Links -->
+        </ul>
+    </footer>
 
-  <script>
-    // JavaScript for dark/light mode toggle
-    const toggleSwitch = document.querySelector('.toggle');
-    toggleSwitch.addEventListener('change', function() {
-      if (this.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    });
-  </script>
+    <script>
+        // JavaScript Code
+        // Dark/Light Mode Toggle
+        const toggleSwitch = document.getElementById('toggle');
+        toggleSwitch.addEventListener('change', switchTheme);
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+
+        // Fetching
+        // You can add your fetching logic here
+    </script>
 </body>
 </html>
